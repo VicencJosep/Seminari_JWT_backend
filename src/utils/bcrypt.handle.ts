@@ -1,13 +1,12 @@
-import { hash, compare } from "bcryptjs";
-
-const encrypt = async(pass: string) => {
-    const passwordHash = await hash(pass, 8);
-    return passwordHash;
+const encrypt = async (pass: string) => {
+    // Devuelve la contraseña tal cual, sin encriptar
+    return pass;
 };
 
 const verified = async (pass: string, passHash: string) => {
-    const isCorrect = await compare(pass, passHash);
-    return isCorrect;
+    // Compara directamente las cadenas sin desencriptar
+    return pass === passHash;
 };
+
 export { encrypt, verified };
 
